@@ -3,6 +3,17 @@ import 'package:app/Widgets/constantes.dart';
 import 'resultado.dart';
 import 'package:flutter/material.dart';
 
+var tempo;
+void iniciarCronometro() {
+  tempo = Stopwatch()..start();
+}
+
+Future<int> pararCronometro() async {
+  tempo.stop();
+  int min = await (tempo.elapsedMilliseconds);
+  return min;
+}
+
 double _maxValue({double value, double max}) {
   if (value < max) {
     return value;
@@ -18,8 +29,6 @@ class Relogio extends StatefulWidget {
 }
 
 class _RelogioState extends State<Relogio> {
-  var tempo = Stopwatch()..start();
-
   double _setPosition({double value, double newValue}) {
     value = newValue;
     return value;
@@ -36,13 +45,13 @@ class _RelogioState extends State<Relogio> {
     var buttonSize = clockSize * .12;
     return Container(
       height: mainContainerSize,
-      //  color: Color(0xFFd0cbcb),
+      color: Color(0xFFd0cbcb),
       child: Stack(
         children: [
           Positioned(
-            top: screenHeight * .27,
+            top: screenHeight * .35,
             child: Container(
-              height: _maxValue(value: clockSize, max: 350),
+              height: _maxValue(value: clockSize, max: 400),
               //height: widget.clockHeight,
               width: MediaQuery.of(context).size.width,
               decoration: const BoxDecoration(
@@ -209,6 +218,9 @@ class _RelogioState extends State<Relogio> {
                   // _setPosition(value: y1, new_value: dragDetails.offset.dy);
                   x1 = dragDetails.offset.dx;
                   y1 = dragDetails.offset.dy;
+                  if (tempo == null) {
+                    iniciarCronometro();
+                  }
                 });
               },
             ),
@@ -224,6 +236,9 @@ class _RelogioState extends State<Relogio> {
                 setState(() {
                   x2 = dragDetails.offset.dx;
                   y2 = dragDetails.offset.dy;
+                  if (tempo == null) {
+                    iniciarCronometro();
+                  }
                 });
               },
             ),
@@ -239,6 +254,9 @@ class _RelogioState extends State<Relogio> {
                 setState(() {
                   x3 = dragDetails.offset.dx;
                   y3 = dragDetails.offset.dy;
+                  if (tempo == null) {
+                    iniciarCronometro();
+                  }
                 });
               },
             ),
@@ -255,6 +273,9 @@ class _RelogioState extends State<Relogio> {
                   x4 = dragDetails.offset.dx;
 
                   y4 = dragDetails.offset.dy;
+                  if (tempo == null) {
+                    iniciarCronometro();
+                  }
                 });
               },
             ),
@@ -270,6 +291,9 @@ class _RelogioState extends State<Relogio> {
                 setState(() {
                   x5 = dragDetails.offset.dx;
                   y5 = dragDetails.offset.dy;
+                  if (tempo == null) {
+                    iniciarCronometro();
+                  }
                 });
               },
             ),
@@ -285,6 +309,9 @@ class _RelogioState extends State<Relogio> {
                 setState(() {
                   x6 = dragDetails.offset.dx;
                   y6 = dragDetails.offset.dy;
+                  if (tempo == null) {
+                    iniciarCronometro();
+                  }
                 });
               },
             ),
@@ -300,6 +327,9 @@ class _RelogioState extends State<Relogio> {
                 setState(() {
                   x7 = dragDetails.offset.dx;
                   y7 = dragDetails.offset.dy;
+                  if (tempo == null) {
+                    iniciarCronometro();
+                  }
                 });
               },
             ),
@@ -315,6 +345,9 @@ class _RelogioState extends State<Relogio> {
                 setState(() {
                   x8 = dragDetails.offset.dx;
                   y8 = dragDetails.offset.dy;
+                  if (tempo == null) {
+                    iniciarCronometro();
+                  }
                 });
               },
             ),
@@ -330,6 +363,9 @@ class _RelogioState extends State<Relogio> {
                 setState(() {
                   x9 = dragDetails.offset.dx;
                   y9 = dragDetails.offset.dy;
+                  if (tempo == null) {
+                    iniciarCronometro();
+                  }
                 });
               },
             ),
@@ -345,6 +381,9 @@ class _RelogioState extends State<Relogio> {
                 setState(() {
                   x10 = dragDetails.offset.dx;
                   y10 = dragDetails.offset.dy;
+                  if (tempo == null) {
+                    iniciarCronometro();
+                  }
                 });
               },
             ),
@@ -360,6 +399,9 @@ class _RelogioState extends State<Relogio> {
                 setState(() {
                   x11 = dragDetails.offset.dx;
                   y11 = dragDetails.offset.dy;
+                  if (tempo == null) {
+                    iniciarCronometro();
+                  }
                 });
               },
             ),
@@ -375,6 +417,9 @@ class _RelogioState extends State<Relogio> {
                 setState(() {
                   x12 = dragDetails.offset.dx;
                   y12 = dragDetails.offset.dy;
+                  if (tempo == null) {
+                    iniciarCronometro();
+                  }
                 });
               },
             ),
@@ -428,29 +473,29 @@ class _RelogioState extends State<Relogio> {
 }
 
 double x1 = 10;
-double y1 = 30;
+double y1 = 65;
 double x2 = 60;
-double y2 = 30;
+double y2 = 65;
 double x3 = 110;
-double y3 = 30;
+double y3 = 65;
 double x4 = 160;
-double y4 = 30;
+double y4 = 65;
 double x5 = 210;
-double y5 = 30;
+double y5 = 65;
 double x6 = 260;
-double y6 = 30;
+double y6 = 65;
 double x7 = 10;
-double y7 = 80;
+double y7 = 115;
 double x8 = 60;
-double y8 = 80;
+double y8 = 115;
 double x9 = 110;
-double y9 = 80;
+double y9 = 115;
 double x10 = 160;
-double y10 = 80;
+double y10 = 115;
 double x11 = 210;
-double y11 = 80;
+double y11 = 115;
 double x12 = 260;
-double y12 = 80;
+double y12 = 115;
 double finalAngle = 0.0;
 double oldAngle = 0.0;
 double upsetAngle = 0.0;

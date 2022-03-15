@@ -25,9 +25,8 @@ class _MenuState extends State<Menu> {
     var size = MediaQuery.of(context).size;
     var screenHeight = (size.height - appbar.preferredSize.height) -
         MediaQuery.of(context).padding.top;
-    var containerSize = screenHeight * .35;
+    var containerSize = screenHeight * .30;
     return Scaffold(
-      // backgroundColor: Color(0xFFd0cbcb),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -82,7 +81,7 @@ class _MenuState extends State<Menu> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        'Se você clicar em Iniciar, o teste se iniciará e o cronômetro começará a correr.',
+                        'O cronômetro se iniciará a partir do momento que o paciente arrastar um número.',
                         style: TextStyle(
                           fontSize:
                               _maxValue(value: containerSize * .13, max: 21),

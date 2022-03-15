@@ -1,9 +1,13 @@
+import 'package:app/Teste%20do%20Relogio/resposta_do_paciente.dart';
+import 'package:app/Widgets/botao_padrao.dart';
+import 'package:app/Widgets/constantes.dart';
 import 'package:flutter/material.dart';
+import 'relogio.dart';
 
 class Resultado extends StatelessWidget {
-  int min;
+  Future<int> tempoConclusao;
   final Image screenshot;
-  Resultado({this.min, this.screenshot});
+  Resultado({this.tempoConclusao, this.screenshot});
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +78,28 @@ class Resultado extends StatelessWidget {
                 height: size.height * .051,
               ),
               //
+              BotaoPadrao(
+                botaoTexto: 'Conferir Resposta',
+                corDoBotao: kCorGradient,
+                altura: size.height * .1,
+                textSize: .5,
+                max_height: 50,
+                aoPressionar: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => RespostaDoPaciente(
+                        time: tempo != null
+                            ? (tempo.elapsedMilliseconds) / 1000
+                            : tempo,
+                        paciente_screenshot: screenshot,
+                      ),
+                    ),
+                  );
+                },
+              ),
+              SizedBox(
+                height: size.height * .030,
+              ),
 
               Row(
                 children: [
@@ -84,6 +110,7 @@ class Resultado extends StatelessWidget {
                   Expanded(
                     child: TextFormField(
                       keyboardType: TextInputType.number,
+                      textAlign: TextAlign.center,
                       decoration: const InputDecoration(
                           border: UnderlineInputBorder(
                             borderSide:
